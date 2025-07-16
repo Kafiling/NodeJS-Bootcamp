@@ -1,5 +1,6 @@
 const fs = require('fs'); // fs == file system
 const http = require('http');
+const url = require('url');
 //----------------------------//
 // File System
 
@@ -32,12 +33,26 @@ const http = require('http');
 // Server
 
 const server = http.createServer((req, res) => {
-    console.log(req);
-    res.end('Hello from the server!')
+    console.log(req.url);
+    const pathName = req.url
+    if (pathName === '/overview' || pathName === '/') {
+        res.end('This is Overview')
+    } else if (pathName === '/product') {
+        res.end('This is Product')
+    }
+    else {
+        //writeHead(statusNumber,HeaderObject)
+        //IMPORTANT header must be written before respond content
+        res.writeHead(404, {
+            'content-type': 'text/html',
+            'my-own-header': 'hello-world'
+        })
+        res.end('<h1>Page not found!</h1>')
+    }
 })
 
 // server listening to port 8000, and at the IP address 127.0.0.1 (localhost)
-server.listen(8000,'127.0.0.1',()=>{
+server.listen(8000, '127.0.0.1', () => {
     console.log('Listening to requests on port 8000')
 })
 
