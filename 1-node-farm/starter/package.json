@@ -1,0 +1,20 @@
+{
+  "name": "node-farm",
+  "version": "1.0.0",
+  "description": "Learning Node.js",
+  "homepage": "https://github.com/Kafiling/NodeJS-Bootcamp#readme",
+  "bugs": {
+    "url": "https://github.com/Kafiling/NodeJS-Bootcamp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kafiling/NodeJS-Bootcamp.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
